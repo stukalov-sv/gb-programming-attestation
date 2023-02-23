@@ -15,17 +15,17 @@ public class RegistrationController {
     AnimalRegistrationService animalRegistrationService = new AnimalRegistrationService();
 
     public void button() {
-        Scanner iScanner = new Scanner(System.in);
-
         while (true) {
-            System.out.println("Animals list\nChoose action you want:\n");
-            System.out.println("Animals in list - " + AnimalCountService.getCount() +
-                    "\nShow all animals - 1\n" +
+            Scanner iScanner = new Scanner(System.in);
+            int action;
+            System.out.println("\nAnimals in list - " + AnimalCountService.getCount());
+            System.out.println("\nChoose action you want:\n" +
+                    "Show all animals - 1\n" +
                     "Add animal - 2\n" +
                     "Choose animal - 3\n" +
-                    "Exit - 4");
+                    "Exit - 4\n");
 
-            int action = iScanner.nextInt();
+            action = iScanner.nextInt();
 
             switch (action) {
                 case 1:
@@ -38,13 +38,11 @@ public class RegistrationController {
                     selectAnimal();
                     break;
                 case 4:
-                    break;
+                    return;
                 default:
                     System.out.println("Incorrect data. Try again\n");
-                    button();
                     break;
             }
-            iScanner.close();
         }
     }
 
@@ -103,12 +101,10 @@ public class RegistrationController {
                 animalRegistrationService.addAnimals(new Donkey(name, birthDate));
                 break;
             default:
-                System.out.println("Incorrect data. Try again\n");
+                System.out.println("Incorrect data. Try again");
                 button();
                 break;
         }
-
-        iScanner.close();
     }
 
     private void selectAnimal() {
@@ -130,11 +126,11 @@ public class RegistrationController {
                 }
             }
 
-            System.out.println("What doing with animal?");
+            System.out.println("\nWhat doing with animal?");
             System.out.println("Learn new command - 1\n" + 
                                 "Print known command list - 2\n" + 
-                                "Remove animal from list - 3" + 
-                                "Return to pervious menu - 4");
+                                "Remove animal from list - 3\n" + 
+                                "Return to pervious menu - 4\n");
             action = iScanner.nextInt();
             switch (action) {
                 case 1:
@@ -153,14 +149,12 @@ public class RegistrationController {
                     button();
                     break;
                 default:
-                    System.out.println("Incorrect data. Try again\n");
+                    System.out.println("Incorrect data. Try again");
                     selectAnimal();
                     break;
             }
         } else {
-            System.out.println("Animal list is empty\n");
+            System.out.println("Animal list is empty. Try again");
         }
-
-        iScanner.close();
     }
 }

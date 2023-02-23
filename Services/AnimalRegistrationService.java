@@ -17,7 +17,7 @@ public class AnimalRegistrationService {
                 if (AnimalCountService.addCount(animal)) {
                     homeAnimals.add(animal);
                 }
-                System.out.println("Animal added to list\n");
+                System.out.println("\nAnimal added to list\n");
             } catch (AnimalExceptionService e) {
                 e.printStackTrace();
             }
@@ -57,11 +57,11 @@ public class AnimalRegistrationService {
                 System.out.println(countAnimal + 
                                     ". " + homeAnimals.type() + 
                                     ", " + homeAnimals.getName() + 
-                                    "birth: " + homeAnimals.getBirthDate());
+                                    ", birth: " + homeAnimals.getBirthDate());
                 countAnimal++;
             }
         } else {
-            System.out.println("List is empty\n");
+            System.out.println("List is empty. Try again\n");
         }
     }
 
