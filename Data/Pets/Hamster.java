@@ -1,5 +1,19 @@
 package Data.Pets;
 
-public class Hamster {
-    
+import Data.Pet;
+
+public class Hamster extends Pet {
+    private final String type = "Hamster";
+    public Hamster(String name, String birthDate) {
+        super(name, birthDate);
+    }
+
+    public Hamster() {
+        super();
+    }
+
+    @Override
+    public String type() {
+        return type;
+    }
 }

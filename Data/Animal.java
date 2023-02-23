@@ -8,12 +8,12 @@ public abstract class Animal {
     private String birthDate;
     private final List<String> command = new ArrayList<>();
 
-    private Animal(String name, String birthDate) {
+    protected Animal(String name, String birthDate) {
         this.name = name;
         this.birthDate = birthDate;
     }
 
-    private Animal() {}
+    protected Animal() {}
 
     public void teachCommand(String command) {
         this.command.add(command);
